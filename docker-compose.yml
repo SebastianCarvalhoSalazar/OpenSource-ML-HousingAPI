@@ -1,0 +1,70 @@
+# version: '3.8'
+
+services:
+  # MLflow Server
+  mlflow:
+    build: .
+    container_name: mlflow_server
+    working_dir: /app
+    volumes:
+      - ./mlruns:/app/mlruns
+      - ./models:/app/models
+    ports:
+      - "5000:5000"
+    command: >
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri file:///app/mlruns
+      --default-artifact-root file:///app/models
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # FastAPI Application
+  api:
+    build: .
+    container_name: housing_api
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - PRODUCTION_MODEL_PATH=/app/models/production.pkl
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./src:/app/src
+      - ./app:/app/app
+      - ./monitoring_data:/app/monitoring_data
+    ports:
+      - "8000:8000"
+    command: python app/api.py
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Streamlit UI
+  streamlit:
+    build: .
+    container_name: housing_ui
+    environment:
+      - API_URL=http://api:8000
+    volumes:
+      - ./app:/app/app
+    ports:
+      - "8501:8501"
+    command: streamlit run app/streamlit_app.py --server.address 0.0.0.0
+    depends_on:
+      api:
+        condition: service_healthy
+
+networks:
+  default:
+    name: housing_network

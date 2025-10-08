@@ -1,9 +1,42 @@
-name: CI
+name: CI Pipeline
 
-on: [push]
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Placeholder CI"
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-cov flake8
+      
+      - name: Run tests
+        run: pytest tests/ -v --cov=src --cov=app --cov-report=xml
+      
+      - name: Lint
+        run: flake8 src/ app/ --max-line-length=100
+  
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build Docker image
+        run: docker build -t housing-api .
+      
+      - name: Test Docker image
+        run: |
+          docker run -d -p 8000:8000 --name test-api housing-api
+          sleep 10
+          curl http://localhost:8000/health
+          docker stop test-api
