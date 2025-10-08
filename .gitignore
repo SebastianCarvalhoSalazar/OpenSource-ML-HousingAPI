@@ -210,10 +210,17 @@ __marimo__/
 # Others
 *.html
 *.parquet
-*.png
 *.pkl
 *.json
 mlruns/
 # *.csv
 models/
 # /data
+
+# Exceptions
+*.png
+!APIDocs.png
+!MLFlowDashBoard.png
+!StreamlitBatchPredict.png
+!StreamlitBatchPredictHistogram.png
+!StreamlitSinglePredict.png

@@ -457,7 +457,7 @@ if __name__ == "__main__":
         mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
         mlflow.set_experiment(EXPERIMENT_NAME)
         
-        df = load_boston_housing_data(use_california=True)
+        df = load_boston_housing_data()
         train_df, test_df = prepare_train_test_split(df, TEST_SIZE, RANDOM_STATE)
         
         X_train, y_train = prepare_features_target(train_df, target_column='PRICE')
