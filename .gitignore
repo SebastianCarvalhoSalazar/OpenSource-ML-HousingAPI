@@ -216,3 +216,4 @@ __marimo__/
 mlruns/
 # *.csv
 models/
+# /data

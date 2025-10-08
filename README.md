@@ -8,6 +8,26 @@ A complete MLOps solution for predicting house prices using the Boston Housing d
 ![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+<p align="center">
+  <img src="assets/StreamlitSinglePredict.png" alt="Streamlit Single Prediction UI" width="800"/>
+</p>
+
+<p align="center">
+  <img src="assets/StreamlitBatchPredict.png" alt="Batch Prediction Histogram" width="800"/>
+</p>
+
+<p align="center">
+  <img src="assets/StreamlitBatchPredictHistogram.png" alt="Batch Prediction Histogram" width="800"/>
+</p>
+
+<p align="center">
+  <img src="assets/APIDocs.png" alt="FastAPI Docs UI" width="800"/>
+</p>
+
+<p align="center">
+  <img src="assets/MLFlowDashBoard.png" alt="MLflow Dashboard" width="800"/>
+</p>
+
 ## Features
 
 - **Baseline & Advanced Models**: Linear Regression baseline + optimized Random Forest and XGBoost
@@ -117,30 +137,30 @@ boston-housing-mlops/
 │   ├── drift_monitor.py        # Evidently drift detection (data + performance)
 │   └── setup_monitoring.py     # Initialize monitoring with reference data
 ├── tests/                      # Unit tests
-│   ├── test_api.py            # API endpoint tests (FastAPI TestClient)
-│   └── test_models.py         # Model and preprocessing tests
+│   ├── test_api.py             # API endpoint tests (FastAPI TestClient)
+│   └── test_models.py          # Model and preprocessing tests
 ├── data/                       # Dataset storage
-│   └── HousingData.csv        # Boston Housing dataset (DVC tracked)
+│   └── raw/HousingData.csv     # Boston Housing dataset (DVC tracked)
 ├── models/                     # Trained models
 │   ├── baseline_linear_regression.pkl
 │   ├── random_forest_optimized.pkl
 │   ├── xgboost_optimized.pkl
-│   ├── production.pkl         # Promoted model (symlink/copy)
-│   └── figures/               # Model visualizations
-├── monitoring_data/           # Monitoring artifacts
-│   ├── reference_data.parquet # Baseline data for drift detection
-│   ├── drift_report_*.html    # Evidently drift reports
+│   ├── production.pkl          # Promoted model (symlink/copy)
+│   └── figures/                # Model visualizations
+├── monitoring_data/            # Monitoring artifacts
+│   ├── reference_data.parquet  # Baseline data for drift detection
+│   ├── drift_report_*.html     # Evidently drift reports
 │   └── performance_report_*.html
-├── mlruns/                    # MLflow experiment tracking
-├── .github/workflows/         # CI/CD pipelines
-│   └── ci.yml                # GitHub Actions (syntax validation)
-├── Dockerfile                 # Docker image definition
-├── docker-compose.yml         # Multi-service orchestration
-├── requirements.txt           # Python dependencies
-├── .env                       # Environment variables
-├── .dvc/                      # DVC configuration
-├── data.dvc                   # DVC dataset tracking
-└── README.md                  # This file
+├── mlruns/                     # MLflow experiment tracking
+├── .github/workflows/          # CI/CD pipelines
+│   └── ci.yml                  # GitHub Actions (syntax validation)
+├── Dockerfile                  # Docker image definition
+├── docker-compose.yml          # Multi-service orchestration
+├── requirements.txt            # Python dependencies
+├── .env                        # Environment variables
+├── .dvc/                       # DVC configuration
+├── data.dvc                    # DVC dataset tracking
+└── README.md                   # This file
 ```
 
 ---

@@ -3,7 +3,7 @@ import pandas as pd
 from pandas import DataFrame
 
 
-def load_boston_housing_data(csv_path: str = 'data/HousingData.csv') -> DataFrame:
+def load_boston_housing_data(csv_path: str = 'data/raw/HousingData.csv') -> DataFrame:
     """
     Load Boston Housing dataset from local CSV.
     Args:
