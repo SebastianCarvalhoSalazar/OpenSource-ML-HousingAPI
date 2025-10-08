@@ -5,9 +5,9 @@ Updated for Boston Housing Dataset (13 features).
 import streamlit as st
 import requests
 import pandas as pd
-import numpy as np
+# import numpy as np
 import plotly.express as px
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 from datetime import datetime
 import time
 
