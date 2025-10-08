@@ -8,7 +8,7 @@ A complete MLOps solution for predicting house prices using the Boston Housing d
 ![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## 📋 Features
+## Features
 
 - **Baseline & Advanced Models**: Linear Regression baseline + optimized Random Forest and XGBoost
 - **Bayesian Optimization**: Hyperparameter tuning with scikit-optimize (15 iterations)
@@ -99,7 +99,7 @@ streamlit run app/streamlit_app.py
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 boston-housing-mlops/
@@ -145,7 +145,7 @@ boston-housing-mlops/
 
 ---
 
-## 🔧 API Usage
+## API Usage
 
 ### Single Prediction
 
