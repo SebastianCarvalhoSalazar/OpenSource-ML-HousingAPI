@@ -6,11 +6,11 @@ import os
 import sys
 import mlflow
 import mlflow.sklearn
-import mlflow.xgboost
+# import mlflow.xgboost
 import numpy as np
 from datetime import datetime
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import cross_val_score, KFold
+from sklearn.model_selection import KFold
 from sklearn.pipeline import Pipeline
 from xgboost import XGBRegressor
 from skopt import BayesSearchCV

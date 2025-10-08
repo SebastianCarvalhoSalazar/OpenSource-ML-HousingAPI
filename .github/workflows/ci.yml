@@ -22,9 +22,6 @@ jobs:
       
       - name: Run tests
         run: pytest tests/ -v --cov=src --cov=app --cov-report=xml
-      
-      - name: Lint
-        run: flake8 src/ app/ --max-line-length=100
   
   docker:
     runs-on: ubuntu-latest

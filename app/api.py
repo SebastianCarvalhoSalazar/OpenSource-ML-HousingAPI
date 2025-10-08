@@ -5,7 +5,6 @@ Updated to work with Pipeline objects and Boston Housing Dataset.
 import os
 import sys
 import joblib
-# import numpy as np
 import pandas as pd
 from typing import List, Union
 from datetime import datetime
