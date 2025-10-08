@@ -206,3 +206,12 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 /data
+
+# Others
+*.html
+*.parquet
+*.png
+*.pkl
+*.json
+mlruns/
+*.csv
