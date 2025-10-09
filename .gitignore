@@ -224,3 +224,5 @@ models/
 !StreamlitBatchPredict.png
 !StreamlitBatchPredictHistogram.png
 !StreamlitSinglePredict.png
+!EvidentlyDriftReport.png
+!EvidentlyPerformanceReport.png

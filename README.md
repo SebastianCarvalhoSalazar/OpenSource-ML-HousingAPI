@@ -28,6 +28,14 @@ A complete MLOps solution for predicting house prices using the Boston Housing d
   <img src="assets/MLFlowDashBoard.png" alt="MLflow Dashboard" width="800"/>
 </p>
 
+<p align="center">
+  <img src="assets/EvidentlyPerformanceReport.png" alt="Evidently Performance Report" width="800"/>
+</p>
+
+<p align="center">
+  <img src="assets/EvidentlyDriftReport.png" alt="Evidently Drift Report" width="800"/>
+</p>
+
 ## Features
 
 - **Baseline & Advanced Models**: Linear Regression baseline + optimized Random Forest and XGBoost
