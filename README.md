@@ -165,7 +165,7 @@ boston-housing-mlops/
 ├── Dockerfile                  # Docker image definition
 ├── docker-compose.yml          # Multi-service orchestration
 ├── requirements.txt            # Python dependencies
-├── .env                        # Environment variables
+├── .env.example                # Environment variables template (copy to .env)
 ├── .dvc/                       # DVC configuration
 ├── data.dvc                    # DVC dataset tracking
 └── README.md                   # This file
